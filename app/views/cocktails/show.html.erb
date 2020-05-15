@@ -3,12 +3,20 @@
 <% @cocktail.doses.each do |dose| %>
   <ul>
     <li><%= dose.ingredient.name %>:
-    <%= dose.description %></li>
+    <%= dose.description %>
+    <%=link_to "detete", dose_path(dose), method: :delete, data: { confirm: "are you sure?"}  %>
+    <!-- <a href="" data-method="destroy"> delete </a> -->
+    </li>
   </ul>
 <% end %>
 <p>Image here</p>
 
+
+<%= link_to "delete this cocktail", cocktail_path(@cocktail), method: :delete, data: { confirm: "are you sure you want to delete this cocktail?" } %>
+<%#= link_to "Delete this task",task_path(@task), method: :delete, data: { confirm: 'Are you sure you want to delete?' } %>
+
 <p><%= link_to "Add Dose to Cocktail", new_cocktail_dose_path(@cocktail)%></p>
 
+<p><%= link_to "Back to all cocktails", cocktails_path %></p>
 
- <p><%= link_to "Back to all cocktails", cocktails_path %></p>
+
