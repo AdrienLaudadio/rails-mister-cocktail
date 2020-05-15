@@ -5,7 +5,5 @@ class Dose < ApplicationRecord
   validates :description, presence: true
   validates :cocktail, uniqueness: { scope: :ingredient }
 
-
   # :cocktail_id foreign_key: true
-
 end
